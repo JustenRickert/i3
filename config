@@ -208,7 +208,7 @@ exec			syndaemon -i 1.75 -t -d -k
 bindsym			$mod+x exec emacsclient ~/notes.org -c
 
 # startup goodies
-exec firefox && emacs
+# exec firefox && emacs
 
 # change the bar dpi
 # exec xrandr --dpi 87
