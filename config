@@ -1,11 +1,11 @@
-# Hyper, not Alt
+#i Hyper, not Alt
 set			$mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font			pango:Source Sans Pro Mono 9
 
-# Make the currently focused window a scratchpad
+ Make the currently focused window a scratchpad
 bindsym			$mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
@@ -26,7 +26,7 @@ bindsym			$mod+Shift+w exec firefox --private-window
 bindsym			$mod+Shift+comma exec i3lock
 
 # start a terminal
-bindsym			$mod+Return exec roxterm
+bindsym			$mod+Return exec lxterminal
 
 # kill focused window
 bindsym			$mod+Shift+apostrophe kill
