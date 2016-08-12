@@ -5,7 +5,7 @@ set			$mod Mod4
 # is used in the bar {} block below.
 font			pango:Source Sans Pro Mono 9
 
-# Make the currently focused window a scratchpad
+ Make the currently focused window a scratchpad
 bindsym			$mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
