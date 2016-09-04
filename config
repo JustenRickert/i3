@@ -193,13 +193,14 @@ exec			--no-startup-id feh --bg-scale ~/Pictures/Blue-Geometric-Wallpaper-4.jpg
 # exec			--no-startup-id pulseaudio --start
 
 # dropbox
-exec      --no-startup-id dropbox  
+exec      --no-startup-id dropbox start
 # redshift is like f.lux
 exec			--no-startup-id redshift
 
 # battery - gives battery info to i3bar
 exec			sh ~/.batt.sh
 
+# keyboard
 # swaps capslock and escape keys
 # exec xmodmap ~/.swapCapsEsc
 exec			xmodmap -e "clear Lock"
@@ -243,9 +244,9 @@ exec			xset r rate  200 45
 # exec			xautolock -time 60 -locker "gnome-screensaver-command -l"
 
 # i3lock
-bindsym			$mod+Shift+comma exec "systemctl suspend && gnome-screensaver-command -l"
+bindsym			$mod+Shift+comma exec "systemctl hibernate && gnome-screensaver-command -l"
 
 exec xautolock -detectsleep \
   -time 15 -locker 'systemctl suspend && gnome-screensaver-command -l' \
-  -notify 30 \
-  -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'"
+  -notify 60 \
+  -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 60 seconds'"
