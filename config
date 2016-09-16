@@ -1,154 +1,159 @@
 # Hyper, not Alt
-set			    $mod Mod4
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font			  pango:Source Sans Pro Mono 9
+font pango:Source Sans Pro Mono 9
 
 # Make the currently focused window a scratchpad
-bindsym			$mod+Shift+minus move scratchpad
+bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
-bindsym			$mod+minus scratchpad show
+bindsym $mod+minus scratchpad show
 
 # # Show the sup-mail scratchpad window, if any. ???????????????
 # bindsym $mod+apostrophe [title="^Sup ::"] scratchpad show
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier	$mod
+floating_modifier $mod
 
 # start an internet browser
-bindsym			$mod+b exec firefox
-bindsym			$mod+c exec google-chrome
-bindsym			$mod+Shift+b exec firefox --private-window
+bindsym $mod+b exec firefox
+bindsym $mod+c exec google-chrome
+bindsym $mod+Shift+b exec firefox --private-window
 
 # nautilus
-bindsym     $mod+f exec nautilus --no-desktop
+bindsym $mod+f exec nautilus --no-desktop
 
 # start nm-applet
-bindsym     $mod+w exec nm-applet
-bindsym     $mod+Shift+w exec killall nm-applet
+bindsym $mod+w exec nm-applet
+bindsym $mod+Shift+w exec killall nm-applet
 
 # start a terminal
-bindsym			$mod+Return exec gnome-terminal --hide-menubar
+bindsym $mod+Return exec gnome-terminal --hide-menubar
 
 # kill focused window
-bindsym			$mod+Shift+apostrophe kill
+bindsym $mod+Shift+apostrophe kill
 
 # start dmenu (a program launcher)
-bindsym			$mod+e exec dmenu_run -fn "Sauce Code Pro-10" -nb "#2b2b2b" -sb "#dcdccc" -sf "#2b2b2b"
+# bindsym			$mod+e exec dmenu_run -fn "Sauce Code Pro-10" -nb "#2b2b2b" -sb "#dcdccc" -sf "#2b2b2b"
+
+# rofi is a dmenu replacement that looks pretty interesting. Config is located
+# in .Xresources. Maybe consider moving that to the .config directory.
+exec --no-startup-id "rofi -key-run mod4+e -key-window mod4+apostrophe"
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym			$mod+h focus left
-bindsym			$mod+t focus down
-bindsym			$mod+n focus up
-bindsym			$mod+s focus right
+bindsym $mod+h focus left
+bindsym $mod+t focus down
+bindsym $mod+n focus up
+bindsym $mod+s focus right
 
 # alternatively, you can use the cursor keys:
-bindsym			$mod+Left focus left
-bindsym			$mod+Down focus down
-bindsym			$mod+Up focus up
-bindsym			$mod+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # move focused window
-bindsym			$mod+Shift+h move left
-bindsym			$mod+Shift+t move down
-bindsym			$mod+Shift+n move up
-bindsym			$mod+Shift+s move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+t move down
+bindsym $mod+Shift+n move up
+bindsym $mod+Shift+s move right
 
 # alternatively, you can use the cursor keys:
-bindsym			$mod+Shift+Left move left
-bindsym			$mod+Shift+Down move down
-bindsym			$mod+Shift+Up move up
-bindsym			$mod+Shift+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym			$mod+d split h
+bindsym $mod+d split h
 
 # split in vertical orientation
-bindsym			$mod+k split v
+bindsym $mod+k split v
 
 # enter fullscreen mode for the focused container
-bindsym			$mod+u fullscreen toggle
+bindsym $mod+u fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym			$mod+o layout stacking
-bindsym			$mod+comma layout tabbed
-bindsym			$mod+period layout toggle split
+bindsym $mod+o layout stacking
+bindsym $mod+comma layout tabbed
+bindsym $mod+period layout toggle split
 
 # toggle tiling / floating
-bindsym			$mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym			$mod+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym			$mod+a focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym			$mod+1 workspace 1
-bindsym			$mod+2 workspace 2
-bindsym			$mod+3 workspace 3
-bindsym			$mod+4 workspace 4
-bindsym			$mod+5 workspace 5
-bindsym			$mod+6 workspace 6
-bindsym			$mod+7 workspace 7
-bindsym			$mod+8 workspace 8
-bindsym			$mod+9 workspace 9
-bindsym			$mod+0 workspace 10
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym			$mod+Shift+1 move container to workspace 1
-bindsym			$mod+Shift+2 move container to workspace 2
-bindsym			$mod+Shift+3 move container to workspace 3
-bindsym			$mod+Shift+4 move container to workspace 4
-bindsym			$mod+Shift+5 move container to workspace 5
-bindsym			$mod+Shift+6 move container to workspace 6
-bindsym			$mod+Shift+7 move container to workspace 7
-bindsym			$mod+Shift+8 move container to workspace 8
-bindsym			$mod+Shift+9 move container to workspace 9
-bindsym			$mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym			$mod+Shift+j reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym			$mod+Shift+p restart
+bindsym $mod+Shift+p restart
 # exit i3 (logs you out of your X session)
-bindsym			$mod+Shift+period exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+period exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
-mode			"resize" {
+mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym		h resize shrink width 240 px or 4 ppt
-        bindsym		t resize grow height 135 px or 2 ppt
-        bindsym		n resize shrink height 135 px or 2 ppt
-        bindsym		s resize grow width 240 px or 4 ppt
-        bindsym	  Shift+h resize shrink width 30 px or 1.5 ppt
-        bindsym	  Shift+t resize grow height 15 px or 1 ppt
-        bindsym	  Shift+n resize shrink height 15 px or 1 ppt
-        bindsym	  Shift+s  resize grow width 30 px or 1.5 ppt
+        bindsym h resize shrink width 240 px or 4 ppt
+        bindsym t resize grow height 135 px or 2 ppt
+        bindsym n resize shrink height 135 px or 2 ppt
+        bindsym s resize grow width 240 px or 4 ppt
+        bindsym Shift+h resize shrink width 30 px or 1.5 ppt
+        bindsym Shift+t resize grow height 15 px or 1 ppt
+        bindsym Shift+n resize shrink height 15 px or 1 ppt
+        bindsym Shift+s resize grow width 30 px or 1.5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym		Left resize shrink width 1 px or 1 ppt
-        bindsym		Down resize grow height 1 px or 1 ppt
-        bindsym		Up resize shrink height 1 px or 1 ppt
-        bindsym		Right resize grow width 1 px or 1 ppt
+        bindsym Left resize shrink width 1 px or 1 ppt
+        bindsym Down resize grow height 1 px or 1 ppt
+        bindsym Up resize shrink height 1 px or 1 ppt
+        bindsym Right resize grow width 1 px or 1 ppt
 
         # back to normal: Enter or Escape
-        bindsym		Return mode "default"
-        bindsym		Escape mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
 }
 
 bindsym			$mod+p mode "resize"
@@ -165,15 +170,15 @@ bar			{
         }
 }
 
-# class                 border  backgr. text    indicator
-# client.focused          #000000 #DCDCCC #0a0f0f #2e9ef4
-client.focused		#008b8b #D1E2F1 #2b2b2b #2e9ef4
-client.focused_inactive	#2B2B2B #a7b4c0 #2b2b2b #484e50
-client.unfocused	#373838 #373838 #F0DFAF #292d2e
-client.urgent		#2f343a #900000 #ffffff #900000
-client.placeholder	#000000 #0c0c0c #ffffff #000000
+# class                   border  backgr. text    indicator
+# client.focused          #000000 #C1C1C1 #0a0f0f #2e9ef4
+client.focused		        #008b8b #758086 #ffffff #2e9ef4
+client.focused_inactive	  #2B2B2B #525252 #d1e2f1 #484e50
+client.unfocused	        #2F343F #281515 #d1e2f1 #292d2e
+client.urgent		          #2f343F #900000 #ffffff #900000
+client.placeholder	      #000000 #0c0c0c #ffffff #000000
 
-client.background	#2B2B2B
+client.background	#2F343F
 
 #########################################
 # justen
@@ -181,49 +186,50 @@ client.background	#2B2B2B
 # execs
 
 # music player
-bindsym			$mod+l exec google-chrome-stable --app=https://play.google.com/music
+bindsym $mod+l exec google-chrome-stable --app=https://play.google.com/music
 
 # common hangouts
-bindsym			$mod+m exec google-chrome-stable --app=https://plus.google.com/hangouts
+bindsym $mod+m exec google-chrome-stable --app=https://plus.google.com/hangouts
 
 # desktop background
-exec			--no-startup-id feh --bg-scale ~/Pictures/Blue-Geometric-Wallpaper-4.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/Blue-Geometric-Wallpaper-4.jpg
 
 # start pulse audio
 # exec			--no-startup-id pulseaudio --start
 
 # dropbox
-exec      --no-startup-id dropbox start
+exec --no-startup-id dropbox start
 # redshift is like f.lux
-exec			--no-startup-id redshift
+exec --no-startup-id redshift -l 44:-93
 
 # battery - gives battery info to i3bar
-exec			sh ~/.batt.sh
+exec sh ~/.batt.sh
+exec sh ~/.battnoti.sh
 
 # keyboard
 # swaps capslock and escape keys
 # exec xmodmap ~/.swapCapsEsc
-exec			xmodmap -e "clear Lock"
-exec			xmodmap -e "clear mod4"
-exec			xmodmap -e "keycode 66 = Hyper_L" # caps is hyper
-exec			xmodmap -e "keycode 133 = Escape" # meta is esc
-exec			xmodmap -e "keycode 9 = Caps_Lock" # esc is caps
-exec			xmodmap -e "add mod4 = Hyper_L"
+exec xmodmap -e "clear Lock"
+exec xmodmap -e "clear mod4"
+exec xmodmap -e "keycode 66 = Hyper_L" # caps is hyper
+exec xmodmap -e "keycode 133 = Escape" # meta is esc
+exec xmodmap -e "keycode 9 = Caps_Lock" # esc is caps
+exec xmodmap -e "add mod4 = Hyper_L"
 
 # volume keys
-bindsym			XF86AudioMute exec amixer -D pulse sset Master toggle
-bindsym			XF86AudioLowerVolume exec amixer -D pulse sset Master 3%-
-bindsym			XF86AudioRaiseVolume exec amixer -D pulse sset Master 3%+
+bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 3%-
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 3%+
 
 # brightness keys
-bindsym			XF86MonBrightnessDown exec xbacklight -dec 3%
-bindsym			XF86MonBrightnessUp exec xbacklight -inc 3%
+bindsym XF86MonBrightnessDown exec xbacklight -dec 3%
+bindsym XF86MonBrightnessUp exec xbacklight -inc 3%
 
 # disables trackpad while typing
-exec			--no-startup-id syndaemon -i 1.75 -t -d -k
+exec --no-startup-id syndaemon -i 1.75 -t -d -k
 
 # emacs shenanigans with i3
-bindsym			$mod+x exec emacsclient ~/org/note.org -c
+bindsym $mod+x exec emacsclient ~/org/note.org -c
 
 # increase touchpad sensitivity speed
 exec "xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'Device Accel Constant Deceleration' 1.5"
@@ -237,16 +243,20 @@ exec "xinput --set-prop 'TPPS/2 IBM TrackPoint' 'Device Accel Constant Decelerat
 
 # increase repeat rate
 #                DELAY  RATE
-exec			xset r rate  200 45
+exec xset r rate 200 45
+
+# horizontal scrolling
+exec "synclient HorizTwoFingerScroll=1"
 
 # suspend locking
 # exec			xautolock -time 30 -locker "systemctl suspend"
 # exec			xautolock -time 60 -locker "gnome-screensaver-command -l"
 
 # i3lock
-bindsym			$mod+Shift+comma exec "systemctl hibernate && gnome-screensaver-command -l"
+bindsym $mod+Shift+equals exec "systemctl hibernate"
+bindsym $mod+Shift+comma exec "gnome-screensaver-command -l"
 
 exec xautolock -detectsleep \
-  -time 15 -locker 'systemctl suspend && gnome-screensaver-command -l' \
-  -notify 60 \
-  -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 60 seconds'"
+  -time 60 -locker 'systemctl suspend && gnome-screensaver-command -l' \
+  -notify 120 \
+  -notifier "notify-send -u normal -- 'LOCKING screen in 2 minutes.'"
