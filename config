@@ -11,6 +11,10 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
+# swap keyboards; these also should call sh .capsescmove.sh
+bindsym $mod+F1 exec sh ~/.dvorak.sh
+bindsym $mod+F2 exec sh ~/.dvorakr.sh
+
 # # Show the sup-mail scratchpad window, if any. ???????????????
 # bindsym $mod+apostrophe [title="^Sup ::"] scratchpad show
 
@@ -37,14 +41,9 @@ bindsym $mod+Shift+apostrophe kill
 
 # start dmenu (a program launcher)
 # bindsym			$mod+e exec dmenu_run -fn "Sauce Code Pro-10" -nb "#2b2b2b" -sb "#dcdccc" -sf "#2b2b2b"
-
-# rofi is a dmenu replacement that looks pretty interesting. Config is located
-# in .Xresources. Maybe consider moving that to the .config directory.
-exec --no-startup-id "rofi -key-run mod4+e -key-window mod4+apostrophe"
-
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
+# installed. I use rofi now, though.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
@@ -191,31 +190,6 @@ bindsym $mod+l exec google-chrome-stable --app=https://play.google.com/music
 # common hangouts
 bindsym $mod+m exec google-chrome-stable --app=https://plus.google.com/hangouts
 
-# desktop background
-exec --no-startup-id feh --bg-scale ~/Pictures/Blue-Geometric-Wallpaper-4.jpg
-
-# start pulse audio
-# exec			--no-startup-id pulseaudio --start
-
-# dropbox
-exec --no-startup-id dropbox start
-# redshift is like f.lux
-exec --no-startup-id redshift -l 44:-93
-
-# battery - gives battery info to i3bar
-exec sh ~/.batt.sh
-exec sh ~/.battnoti.sh
-
-# keyboard
-# swaps capslock and escape keys
-# exec xmodmap ~/.swapCapsEsc
-exec xmodmap -e "clear Lock"
-exec xmodmap -e "clear mod4"
-exec xmodmap -e "keycode 66 = Hyper_L" # caps is hyper
-exec xmodmap -e "keycode 133 = Escape" # meta is esc
-exec xmodmap -e "keycode 9 = Caps_Lock" # esc is caps
-exec xmodmap -e "add mod4 = Hyper_L"
-
 # volume keys
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 3%-
@@ -225,38 +199,49 @@ bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 3%+
 bindsym XF86MonBrightnessDown exec xbacklight -dec 3%
 bindsym XF86MonBrightnessUp exec xbacklight -inc 3%
 
-# disables trackpad while typing
-exec --no-startup-id syndaemon -i 1.75 -t -d -k
-
 # emacs shenanigans with i3
 bindsym $mod+x exec emacsclient ~/org/note.org -c
-
-# increase touchpad sensitivity speed
-exec "xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'Device Accel Constant Deceleration' 1.5"
-exec "xinput --set-prop 'TPPS/2 IBM TrackPoint' 'Device Accel Constant Deceleration' 0.35"
-
-# startup goodies
-# exec firefox && emacs
-
-# change the bar dpi
-# exec xrandr --dpi 87
-
-# increase repeat rate
-#                DELAY  RATE
-exec xset r rate 200 45
-
-# horizontal scrolling
-exec "synclient HorizTwoFingerScroll=1"
-
-# suspend locking
-# exec			xautolock -time 30 -locker "systemctl suspend"
-# exec			xautolock -time 60 -locker "gnome-screensaver-command -l"
-
 # i3lock
 bindsym $mod+Shift+equals exec "systemctl hibernate"
 bindsym $mod+Shift+comma exec "gnome-screensaver-command -l"
 
-exec xautolock -detectsleep \
-  -time 60 -locker 'systemctl suspend && gnome-screensaver-command -l' \
-  -notify 120 \
-  -notifier "notify-send -u normal -- 'LOCKING screen in 2 minutes.'"
+# The rest of these things I moved to .xsessionrc. I'm not sure about it, yet.
+
+# exec xautolock -detectsleep \
+#   -time 60 -locker 'systemctl suspend && gnome-screensaver-command -l' \
+#   -notify 120 \
+#   -notifier "notify-send -u normal -- 'LOCKING screen in 2 minutes.'"
+
+# # increase touchpad sensitivity speed
+# exec "xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'Device Accel Constant Deceleration' 1.5"
+# exec "xinput --set-prop 'TPPS/2 IBM TrackPoint' 'Device Accel Constant Deceleration' 0.35"
+
+# # increase repeat rate
+# #                DELAY  RATE
+# exec xset r rate 200 45
+
+# # horizontal scrolling
+# exec "synclient HorizTwoFingerScroll=1"
+
+# # disables trackpad while typing
+# exec --no-startup-id syndaemon -i 1.75 -t -d -k
+
+# # dropbox
+# exec --no-startup-id dropbox start
+# # redshift is like f.lux
+# exec --no-startup-id redshift -l 44:-93
+
+# # battery - gives battery info to i3bar
+# exec sh ~/.batt.sh
+# exec sh ~/.battnoti.sh
+
+# # keyboard
+# # swaps capslock and escape keys
+# exec sh ~/.capsescmove.sh
+
+# # desktop background
+# exec --no-startup-id feh --bg-scale ~/Pictures/tfUMfjr.jpg
+
+# # rofi is a dmenu replacement that looks pretty interesting. Config is located
+# # in .Xresources. Maybe consider moving that to the .config directory.
+# exec --no-startup-id "rofi -key-run mod4+e -key-window mod4+apostrophe"
